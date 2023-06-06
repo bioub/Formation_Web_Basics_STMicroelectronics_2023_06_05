@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: beige;
+
+      font-size: 32px; /* par défaut 16px */
+      /* toutes les propriétés texte (font-size, font-weight, color...)
+      sont héritée donc pas besoin de les redéfinir */
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+    }
+
+    /* Spécificité : 0, 1, 1 */
+    div.un {
+      background-color: red;
+    }
+
+    /* Spécificité : 0, 1, 0 */
+    .un {
+      background-color: yellow;
+    }
+
+    /* Spécificité : 0, 0, 1 */
+    div {
+      background-color: orange;
+    }
+
+    /* Bonne pratique : écrire le CSS avec des spécificités ascendantes
+    (l'inverse de ce que j'ai écrit ici) */
+  </style>
+</head>
+<body>
+  <div class="un" id="un" title="Un">1</div>
+  <div class="deux" id="deux" title="Deux">2</div>
+  <div class="trois" id="trois" title="Trois">3</div>
+  <div class="quatra" id="quatra" title="Quatre">4</div>
+</body>
+</html>

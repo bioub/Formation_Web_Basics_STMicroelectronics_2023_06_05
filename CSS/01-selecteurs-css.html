@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* toutes les balises (sauf head, y compris html et body) */
+      /* * {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* un nom de balise */
+      /* p {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* par id (ici id="description") */
+      /* #description {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* les paragraphes qui ont la classe texte */
+      /* p.texte {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* tous les éléments (balises) qui ont la classe texte */
+      /* .texte {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* on peut cumuler les sélecteurs (sans espaces => ET Logique) */
+      /* p.texte.first {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* on peut passer une liste de sélecteurs (idem écrire plusieurs bloc de propriétés) */
+      /* h1, h2, h3, h4, h5, h6, .title {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* les paragraphes descendants d'un footer */
+      /* footer p {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* les paragraphes dont le parent est un footer */
+      /* footer > p {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* tous les paragraphes dont le frère (direct) qui précède est un h2 */
+      /* h2 + p {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* tous les paragraphes dont un frère qui précède est un h1 */
+      /* h1 ~ p {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* le premier paragraphe */
+      /* p:first-of-type {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* le premier paragraphe enfant de body */
+      /* body > p:first-of-type {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* le premier paragraphe enfant de #description */
+      /* #description > p:first-of-type {
+        padding: 5px;
+        border: 1px solid black;
+      } */
+
+      /* le paragraphe qui est premier fils */
+      p:first-child {
+        padding: 5px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Titre 1</h1>
+    <h2>Titre 2</h2>
+    <p class="texte first">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum maiores
+      pariatur consequatur facere. Enim, necessitatibus ad. Quae illo deleniti
+      voluptatum suscipit ratione, vel vero doloribus itaque aliquid? Deserunt,
+      accusamus voluptate?
+    </p>
+    <p>
+      Unde laudantium temporibus esse vel impedit incidunt sint dolore tenetur,
+      sequi repellendus. Error perferendis, fugit iure pariatur doloremque rem
+      earum iste molestias tempora laborum laudantium vero sit modi quas neque.
+    </p>
+    <h2>Titre 2</h2>
+    <p class="texte">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aliquid
+      tempore sed iusto explicabo obcaecati at harum, a facilis distinctio
+      dignissimos, consequuntur repellendus rerum, sint nostrum doloremque vel
+      corporis deleniti!
+    </p>
+    <footer>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod quasi
+        omnis aspernatur, aut ad modi maiores incidunt magni, facilis unde eos
+        pariatur quas nobis aliquid, asperiores eligendi. Ullam, error sed.
+      </p>
+      <div id="description">
+        <h2 class="texte">Titre 2</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique
+          aliquid omnis nihil, doloribus animi mollitia consequuntur blanditiis
+          laborum molestias sit, neque inventore laboriosam ratione nisi
+          officiis, quae voluptate atque. Adipisci.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
