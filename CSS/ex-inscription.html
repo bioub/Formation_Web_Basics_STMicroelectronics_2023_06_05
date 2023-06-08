@@ -49,6 +49,21 @@
     #sexe {
       width: 295px;
     }
+
+    .with-placeholder {
+      position: relative;
+    }
+
+    .with-placeholder input {
+      width: 300px;
+      padding-right: 100px;
+    box-sizing: border-box;
+    }
+
+    .placeholder-right {
+      position: absolute;
+      right: 8px;
+    }
   </style>
 </head>
 <body>
@@ -62,8 +77,9 @@
     </div>
     <div class="form-row">
       <h3>Choisissez votre nom d'utilisateur</h3>
-      <div class="form-fields">
-        <input type="text" placeholder="@gmail.com">
+      <div class="form-fields with-placeholder">
+        <input type="text" placeholder="">
+        <span class="placeholder-right">@gmail.com</span>
       </div>
       <div class="form-helper">
         <a href="#">Je préfère utiliser mon adresse e-mail actuelle</a>

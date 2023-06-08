@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      border: 1px solid black;
+      margin: 1em 0;
+    }
+
+    .text-horizontal {
+      text-align: center;
+    }
+
+    .inline-horizontal {
+      text-align: center;
+    }
+
+    .block-horizontal {
+      width: 100px;
+      background-color: red;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .flex-horizontal {
+      display: flex;
+      justify-content: center;
+    }
+
+    .flex-horizontal div {
+      width: 100px;
+      background-color: red;
+    }
+
+    .container-vertical {
+      border: 1px solid black;
+      margin: 1em 0;
+      height: 60px;
+    }
+
+    .text-vertical {
+      line-height: 60px; /* dépend de la hauteur du block */
+    }
+
+    .flex-vertical {
+      display: flex;
+      align-items: center;
+    }
+
+    .flex-auto {
+      display: flex;
+    }
+
+    .flex-auto div {
+      margin: auto
+    }
+  </style>
+</head>
+<body>
+  <h2>Centrer horizontalement du texte dans un block</h2>
+  <div class="container text-horizontal">Texte</div>
+
+  <h2>Centrer horizontalement un inline dans un block</h2>
+  <div class="container inline-horizontal"><span>Texte</span></div>
+
+  <h2>Centrer horizontalement plusieurs inlines dans un block</h2>
+  <div class="container inline-horizontal"><span>Texte</span><span>Texte</span><span>Texte</span></div>
+
+  <h2>Centrer horizontalement un block dans un block</h2>
+  <div class="container"><div class="block-horizontal">Texte</div></div>
+
+  <h2>Centrer horizontalement plusieurs blocks dans un block</h2>
+  <div class="container flex-horizontal"><div>Texte</div><div>Texte</div></div>
+
+  <h2>Centrer verticalement du texte sur une ligne dans un block (priviligier les flexbox)</h2>
+  <div class="container-vertical text-vertical">Texte</div>
+
+  <h2>Centrer verticalement du texte sur une ligne dans un block</h2>
+  <div class="container-vertical flex-vertical">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste accusantium nesciunt tempora eligen</div>
+
+  <h2>Centrer verticalement du texte sur une ligne dans un block</h2>
+  <div class="container-vertical flex-vertical">
+    <div>text</div>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labor</div>
+    <div>text</div>
+  </div>
+
+  <div class="container-vertical flex-auto">
+    <div>text</div>
+  </div>
+</body>
+</html>
