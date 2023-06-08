@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p {
+      text-decoration: underline;
+    }
+
+    /* CSS Conditionnel ici pour l'impression uniquement */
+    @media print {
+      nav {
+        display: none;
+      }
+    }
+
+    @media (orientation: portrait) {
+      p {
+        background-color: yellow;
+      }
+    }
+
+    @media (min-width: 800px) {
+      p {
+        background-color: red;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    Menu
+  </nav>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, alias quod? Consequuntur soluta, aspernatur eius molestiae saepe assumenda dolorem, sed in id tempore odit. Sed omnis nostrum dolor mollitia. Itaque?</p>
+</body>
+</html>
