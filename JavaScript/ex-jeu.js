@@ -70,3 +70,14 @@ function jouer() {
 
 // CTRL-C pour killer le programme si besoin
 jouer();
+
+
+
+// pile d'appel
+// ^
+// |
+// |                              [question]              [question]
+// |[question]                    [jouer   ]              [jouer   ]                        [log]
+// |[jouer   ] ..⟳..              [=>      ] ..⟳..        [=>      ] ..⟳..
+// +----------------------------------------------------------------------------------------------------->
+//
