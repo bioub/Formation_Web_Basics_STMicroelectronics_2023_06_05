@@ -22,8 +22,10 @@ const readline = require("readline");
 
 class Jeu {
   constructor(options = {}) {
-    const min = options.min ?? 0; // (ES2020) si options.min vaut null ou undefined on active la valeur de droite
-    const max = options.max ?? 100;
+    // const min = options.min ?? 0; // (ES2020) si options.min vaut null ou undefined on active la valeur de droite
+    // const max = options.max ?? 100;
+
+    const { min = 0, max = 100 } = options;
 
     this.rl = readline.createInterface({
       input: process.stdin,
