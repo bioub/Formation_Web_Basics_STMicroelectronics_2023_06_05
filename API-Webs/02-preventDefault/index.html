@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="https://www.google.com/search" method="get">
+      <input type="text" name="q" />
+      <button>Google</button>
+    </form>
+
+    <nav>
+      <a href="https://www.google.com/">Google</a>
+    </nav>
+
+    <fieldset>
+      <label>Téléphone <input type="tel" /></label>
+    </fieldset>
+
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, animi quae
+      accusantium doloremque, molestiae aliquid ipsa corporis soluta mollitia
+      excepturi adipisci quidem molestias ab voluptate repudiandae, voluptates
+      quasi. Perspiciatis, asperiores!
+    </p>
+
+    <script>
+      // event.preventDefault permet de bloquer l'action par défaut du navigateur
+
+      // La soumission du formulaire
+      const formEl = document.querySelector('form')
+      formEl.addEventListener('submit', (event) => {
+        event.preventDefault();
+      });
+
+      // Le click d'un lien
+      const anchorEl = document.querySelector('a')
+      anchorEl.addEventListener('click', (event) => {
+        event.preventDefault();
+      });
+
+      // La saisie dans un champs
+      const inputEl = document.querySelector('input[type=tel]')
+      inputEl.addEventListener('beforeinput', (event) => {
+        event.preventDefault();
+      });
+
+      // La sélection de texte
+      const pEl = document.querySelector('p')
+      pEl.addEventListener('mousedown', (event) => {
+        event.preventDefault();
+      });
+    </script>
+  </body>
+</html>

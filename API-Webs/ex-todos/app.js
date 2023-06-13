@@ -1,3 +1,8 @@
+// Ici on ne peut sélectionner que les éléments
+// présents au chargement de la page
+// (le bouton moins n'existe pas au chargement et
+// ne peut donc être sélectionné ici)
+
 /** @type {HTMLFormElement} */
 const formEl = document.querySelector('.todos-form');
 
@@ -18,9 +23,16 @@ formEl.addEventListener('submit', (event) => {
 
   const todoRowEl = createTodoRow({
     id: Math.random(),
-    title: 'Acheter du pain',
-    completed: true,
+    title: textEl.value,
+    completed: false,
   });
 
   listEl.append(todoRowEl);
 });
+
+/* Exercice 3
+Ecouter le click de checkboxEl (la checkbox globale)
+Et cocher ou décocher toutes les checkboxes de la liste
+Pour sélectionner plusieurs élement on utiliser document.querySelectorAll()
+et boucler ensuite sur le résultat
+*/
