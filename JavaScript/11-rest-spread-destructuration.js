@@ -53,6 +53,7 @@ const [deux = 2, ...troisEtQuatre] = nbs;
 // IDEM sur les Objets
 
 // REST et SPREAD (ES2018)
+// Ne s'utilise au niveau des parametres de fonction
 const coords = { x: 1, y: 2 };
 
 const cloneCoords = { ...coords };

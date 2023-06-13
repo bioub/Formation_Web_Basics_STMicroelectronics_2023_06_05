@@ -1,9 +1,12 @@
-const sub = function(a, b) {
-  return a - b;
-};
+const sub = (a, b) => a - b;
+
+// function sub(a, b) {
+//   return a - b;
+// }
 
 const prenoms = ['Romain', 'Sara', 'Amine'];
 
+// privilégier les fonction fléchées en callback
 prenoms.forEach(function(el) {
   console.log(`Hello ${el}`);
 });
