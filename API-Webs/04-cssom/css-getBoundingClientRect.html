@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        margin: auto;
+      }
+
+      .popover {
+        background-color: yellow;
+        border: 1px solid black;
+        position: absolute;
+        box-sizing: border-box;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script>
+      /** @type {HTMLDivElement} */
+      const boxEls = document.querySelectorAll(".box");
+
+      for (const boxEl of boxEls) {
+        boxEl.addEventListener("mouseenter", () => {
+          const popoverEl = document.createElement("div");
+          popoverEl.className = "popover";
+          popoverEl.innerText = "popover demo !!!!!";
+          document.body.append(popoverEl); // nécessaire pour calculer la taille
+          // à faire avant popoverEl.getBoundingClientRect();
+          const domRectBox = boxEl.getBoundingClientRect();
+          const domRectPopover = popoverEl.getBoundingClientRect();
+
+          popoverEl.style.top = domRectBox.top - domRectPopover.height + 'px';
+          popoverEl.style.left = domRectBox.left - ((domRectPopover.width - domRectBox.width) / 2) + 'px';
+          popoverEl.style.opacity = 0;
+
+          setTimeout(() => {
+            const domRectBox = boxEl.getBoundingClientRect();
+            const domRectPopover = popoverEl.getBoundingClientRect();
+
+            popoverEl.style.top = domRectBox.top - domRectPopover.height + 'px';
+            popoverEl.style.left = domRectBox.left - ((domRectPopover.width - domRectBox.width) / 2) + 'px';
+            popoverEl.style.opacity = 1;
+          }, 0)
+        });
+
+        boxEl.addEventListener("mouseleave", () => {
+          const popoverEl = document.querySelector(".popover");
+          popoverEl.remove();
+        });
+      }
+    </script>
+  </body>
+</html>

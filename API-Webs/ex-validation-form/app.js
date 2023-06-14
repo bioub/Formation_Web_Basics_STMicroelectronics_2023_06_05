@@ -5,6 +5,14 @@
 // correspond à la valeur saisie dans le champs
 // Si le champ est vide afficher une erreur dans la div  dont l'id est "erreur"
 
+// Exercice 2
+// Reprendre le code existant
+// Afficher chaque erreur sous le champ
+// plutot que de la balise <div id="erreur"></div>
+// créer une nouvelle balise comme pour les todos
+// Utiliser CSSOM pour encadrer en rouge le champ en erreur
+// en utilisant par exemple le CSS : border: 2px solid red
+
 /** @type {HTMLInputElement} */
 const inputPrenomEl = document.querySelector('.input-prenom');
 
