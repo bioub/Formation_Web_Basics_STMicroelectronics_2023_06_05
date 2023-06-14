@@ -57,3 +57,12 @@ box-sizing: border-box;
   position: absolute;
   right: 8px;
 }
+
+
+.erreur {
+  color: red;
+}
+
+.error-field {
+  border: 2px solid red;
+}

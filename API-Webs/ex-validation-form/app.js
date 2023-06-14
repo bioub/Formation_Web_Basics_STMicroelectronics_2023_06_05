@@ -14,31 +14,44 @@
 // en utilisant par exemple le CSS : border: 2px solid red
 
 /** @type {HTMLInputElement} */
-const inputPrenomEl = document.querySelector('.input-prenom');
+const inputPrenomEl = document.querySelector(".input-prenom");
 
 /** @type {HTMLInputElement} */
-const inputNomEl = document.querySelector('.input-nom');
+const inputNomEl = document.querySelector(".input-nom");
 
-/** @type {HTMLDivElement} */
-const erreurEl = document.querySelector('#erreur');
-
-inputPrenomEl.addEventListener('input', (event) => {
-  erreurEl.innerText = '';
+inputPrenomEl.addEventListener("input", (event) => {
+  // ? veut dire si .matches('.erreur') est différent de null ou undefined
+  event.target.closest(".form-row").querySelector(".erreur")?.remove();
+  event.target.classList.remove("error-field");
 
   const value = event.target.value;
 
   if (!value) {
-    erreurEl.innerText = 'Le prénom est obligatoire';
+    event.target.classList.add("error-field");
+
+    /** @type {HTMLDivElement} */
+    const erreurEl = document.createElement("div");
+    erreurEl.className = "erreur";
+    erreurEl.innerText = "Le prénom est obligatoire";
+    event.target.closest(".form-fields").after(erreurEl);
   }
 });
 
-inputNomEl.addEventListener('input', (event) => {
-  erreurEl.innerText = '';
+inputNomEl.addEventListener("input", (event) => {
+  // ? veut dire si .matches('.erreur') est différent de null ou undefined
+  event.target.closest(".form-row").querySelector(".erreur")?.remove();
+  event.target.classList.remove("error-field");
 
   const value = event.target.value;
 
   if (!value) {
-    erreurEl.innerText = 'Le nom est obligatoire';
+    event.target.classList.add("error-field");
+
+    /** @type {HTMLDivElement} */
+    const erreurEl = document.createElement("div");
+    erreurEl.className = "erreur";
+    erreurEl.innerText = "Le nom est obligatoire";
+    event.target.closest(".form-fields").after(erreurEl);
   }
 });
 
@@ -47,16 +60,24 @@ inputNomEl.addEventListener('input', (event) => {
 // Utiliser une expression régulière, pour vérifier
 // que le username ne contiennent que des lettres latines non-accentuées (abc...), des chiffres et des underscores _
 // Si le champ est invalide, afficher une erreur dans la div dont l'id est "erreur"
-const inputUsernameEl = document.querySelector('.input-username');
+const inputUsernameEl = document.querySelector(".input-username");
 
-
-inputUsernameEl.addEventListener('input', (event) => {
-  erreurEl.innerText = '';
+inputUsernameEl.addEventListener("input", (event) => {
+  // ? veut dire si .matches('.erreur') est différent de null ou undefined
+  event.target.closest(".form-row").querySelector(".erreur")?.remove();
+  event.target.classList.remove("error-field");
 
   const value = event.target.value;
 
   if (!value.match(/^[a-z0-9_]*$/i)) {
-    erreurEl.innerText = 'Le username ne contient que des lettres latines non-accentuées, chiffres ou underscore';
+    event.target.classList.add("error-field");
+
+    /** @type {HTMLDivElement} */
+    const erreurEl = document.createElement("div");
+    erreurEl.className = "erreur";
+    erreurEl.innerText =
+      "Le username ne contient que des lettres latines non-accentuées, chiffres ou underscore";
+    event.target.closest(".form-fields").after(erreurEl);
   }
 });
 
@@ -64,15 +85,24 @@ inputUsernameEl.addEventListener('input', (event) => {
 // Sur l'événement input
 // Vérifier que le mot de passe correspond à la confirmation
 // Si le champ est invalide, afficher une erreur dans la div dont l'id est "erreur"
-const inputPasswordEl = document.querySelector('.input-password');
-const inputRepeatEl = document.querySelector('.input-repeat');
+const inputPasswordEl = document.querySelector(".input-password");
+const inputRepeatEl = document.querySelector(".input-repeat");
 
-inputRepeatEl.addEventListener('input', (event) => {
-  erreurEl.innerText = '';
+inputRepeatEl.addEventListener("input", (event) => {
+  // ? veut dire si .matches('.erreur') est différent de null ou undefined
+  event.target.closest(".form-row").querySelector(".erreur")?.remove();
+  event.target.classList.remove("error-field");
 
   const value = event.target.value;
 
   if (value !== inputPasswordEl.value) {
-    erreurEl.innerText = 'Le mot de passe et sa confirmation ne correspondent pas';
+    event.target.classList.add("error-field");
+
+    /** @type {HTMLDivElement} */
+    const erreurEl = document.createElement("div");
+    erreurEl.className = "erreur";
+    erreurEl.innerText =
+      "Le mot de passe et sa confirmation ne correspondent pas";
+    event.target.closest(".form-fields").after(erreurEl);
   }
 });
