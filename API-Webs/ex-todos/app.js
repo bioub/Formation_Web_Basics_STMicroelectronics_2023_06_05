@@ -73,3 +73,10 @@ listEl.addEventListener('keyup', (event) => {
     target.replaceWith(createSpan(target.value));
   }
 });
+
+// Exercice 6
+// En utilisant la fonction fetch
+// Interroger le serveur https://jsonplaceholder.typicode.com/todos
+// Créer Autant de ligne qu'il y a de résultats à cette requete
+// en vous inspirant du addEventListener submit du formulaire et de l'ex
+// geocoding

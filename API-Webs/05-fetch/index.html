@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form class="search">
+    <input type="text" class="input">
+    <button>Search</button>
+  </form>
+  <div class="results"></div>
+  <script>
+    /** @type {HTMLFormElement} */
+    const searchEl = document.querySelector('.search');
+
+    /** @type {HTMLInputElement} */
+    const inputEl = document.querySelector('.input');
+
+    /** @type {HTMLDivElement} */
+    const resultsEl = document.querySelector('.results');
+
+    searchEl.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // https://api-adresse.data.gouv.fr/search/?q=8+bd+du+port
+      fetch(`https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(inputEl.value)}`)
+        .then((res) => res.json())
+        .then((data) => {
+          for (const feature of data.features) {
+            const divEl = document.createElement('div');
+
+            divEl.innerText = `${feature.properties.label} | Lat ${feature.geometry.coordinates[1]} |  Lat ${feature.geometry.coordinates[0]}`
+
+            resultsEl.append(divEl);
+          }
+        });
+    })
+  </script>
+</body>
+</html>
