@@ -50,3 +50,26 @@ toggleEl.addEventListener('click', () => {
 // et vous servir de event.target pour savoir si on a déclenché l'événement
 // sur le bouton moins, sur la balise span, sur la balise input
 // (avec une classe c'est préférable)
+listEl.addEventListener('click', (event) => {
+  /** @type {HTMLElement} */
+  const target = event.target;
+  if (target.classList.contains('todos-row-delete')) {
+    target.closest('.todos-row').remove();
+  }
+});
+
+listEl.addEventListener('dblclick', (event) => {
+  /** @type {HTMLElement} */
+  const target = event.target;
+  if (target.classList.contains('todos-row-text')) {
+    target.replaceWith(createInput(target.innerText));
+  }
+});
+
+listEl.addEventListener('keyup', (event) => {
+  /** @type {HTMLElement} */
+  const target = event.target;
+  if (target.classList.contains('todos-row-input') && event.code === 'Enter') {
+    target.replaceWith(createSpan(target.value));
+  }
+});
