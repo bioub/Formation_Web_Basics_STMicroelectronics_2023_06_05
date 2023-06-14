@@ -31,8 +31,8 @@ function createButton() {
   const buttonEl = document.createElement('button');
   buttonEl.className = 'todos-row-delete';
   buttonEl.innerText = '-';
-  buttonEl.addEventListener('click', () => {
-    divEl.remove();
+  buttonEl.addEventListener('click', (event) => {
+    event.target.parentNode.remove();
   });
 
   return buttonEl;

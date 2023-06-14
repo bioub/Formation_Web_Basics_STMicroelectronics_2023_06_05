@@ -43,3 +43,10 @@ toggleEl.addEventListener('click', () => {
     checkbox.checked = toggleEl.checked;
   }
 });
+
+// Exercice 5
+// Rappatrier les 3 addEventListener présents dans todos.js
+// Pour cela écouter les événements au niveau de listEl (qui existe au chargement)
+// et vous servir de event.target pour savoir si on a déclenché l'événement
+// sur le bouton moins, sur la balise span, sur la balise input
+// (avec une classe c'est préférable)

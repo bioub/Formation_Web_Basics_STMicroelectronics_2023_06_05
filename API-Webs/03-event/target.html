@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+    }
+
+    .externe {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      display: flex;
+      margin: auto;
+    }
+
+    .interne {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="externe">
+    <div class="interne"></div>
+  </div>
+  <script>
+    // const externeEl = document.querySelector('.externe');
+    // externeEl.addEventListener('click', () => {
+    //   console.log('click externe');
+    // });
+
+    // const interneEl = document.querySelector('.interne');
+    // interneEl.addEventListener('click', () => {
+    //   console.log('click interne');
+    // });
+
+    // document.body.addEventListener('click', (event) => {
+    //   event.stopPropagation();
+
+    //   console.log('click body');
+    // });
+
+    // document.addEventListener('click', () => {
+    //   console.log('click document');
+    // });
+
+    // window.addEventListener('click', () => {
+    //   console.log('click window');
+    // }, {capture: true});
+
+    const externeEl = document.querySelector('.externe');
+    externeEl.addEventListener('click', (event) => {
+      console.log('click externe');
+      console.log('target', event.target);
+      console.log('currentTarget', event.currentTarget);
+      // currentTarget === l'objet sur lequel on a appelée addEventListener
+      // target === l'élement à l'origine de l'événement
+      // (l'élément sur lequel on a réellement cliqué ici soit externe soit interne)
+
+      if (event.target.className === 'interne') {
+        console.log('Vous avez cliqué sur la balise interne');
+      }
+    });
+  </script>
+</body>
+</html>
