@@ -1,3 +1,43 @@
+function createCheckbox(checked) {
+  const checkboxEl = document.createElement('input');
+  checkboxEl.type = 'checkbox';
+  checkboxEl.checked = checked;
+  return checkboxEl
+}
+
+function createInput(title) {
+  const inputEl = document.createElement('input');
+  inputEl.type = 'text';
+  inputEl.value = title;
+  inputEl.addEventListener('keyup', (event) => {
+    if (event.code === 'Enter') {
+      inputEl.replaceWith(createSpan(inputEl.value));
+    }
+  });
+  return inputEl;
+}
+
+function createSpan(title) {
+  const spanEl = document.createElement('span');
+  spanEl.className = "todos-row-text";
+  spanEl.innerText = title;
+  spanEl.addEventListener('dblclick', () => {
+    spanEl.replaceWith(createInput(title));
+  });
+  return spanEl
+}
+
+function createButton() {
+  const buttonEl = document.createElement('button');
+  buttonEl.className = 'todos-row-delete';
+  buttonEl.innerText = '-';
+  buttonEl.addEventListener('click', () => {
+    divEl.remove();
+  });
+
+  return buttonEl;
+}
+
 /**
  * @param {object} options
  * @param {number} options.id
@@ -5,39 +45,20 @@
  * @param {boolean} options.completed
  */
 function createTodoRow(options) {
-  /*
-  <div class="todos-row" data-todo-id="12">
-    <input type="checkbox">
-    <span class="todos-row-text">Acheter du pain</span>
-    <button class="todos-row-delete">-</button>
-  </div>
-  */
-
   const divEl = document.createElement('div');
   divEl.className = "todos-row";
   divEl.dataset.todoId = options.id;
 
-  const spanEl = document.createElement('span');
-  spanEl.className = "todos-row-text";
-  spanEl.innerText = options.title;
+  const checkboxEl = createCheckbox(options.completed)
+  divEl.append(checkboxEl);
+
+  const spanEl = createSpan(options.title)
   divEl.append(spanEl);
 
-  /* Exercice 1
-  Compléter cette fonction de façon a créer les balises manquantes :
-  <input type="checkbox"> et <button class="todos-row-delete">-</button>
+  const buttonEl = createButton();
+  divEl.append(buttonEl);
 
-  Comme dans l'exemple suivant :
-  <div class="todos-row" data-todo-id="12">
-    <input type="checkbox">
-    <span class="todos-row-text">Acheter du pain</span>
-    <button class="todos-row-delete">-</button>
-  </div>
-  */
 
-  /* Exercice 2
-  Au click du bouton moins, supprimer la balise <div class="todos-row"...
-  Attention il faut supprimer la balise parent du bouton sur lequel on a cliqué
-  */
 
   /* Exercice 4
   Au double click de spanEl
@@ -46,6 +67,7 @@ function createTodoRow(options) {
   Ecouter ensuite l'événement keyup de cette balise input, si
   cela correspond à la touche ENTREE revenir à la balise span
   */
+
 
   return divEl;
 }

@@ -7,7 +7,7 @@
 const formEl = document.querySelector('.todos-form');
 
 /** @type {HTMLInputElement} */
-const checkboxEl = document.querySelector('.todos-form-checkbox');
+const toggleEl = document.querySelector('.todos-form-checkbox');
 
 /** @type {HTMLInputElement} */
 const textEl = document.querySelector('.todos-form-text');
@@ -36,3 +36,10 @@ Et cocher ou décocher toutes les checkboxes de la liste
 Pour sélectionner plusieurs élement on utiliser document.querySelectorAll()
 et boucler ensuite sur le résultat
 */
+toggleEl.addEventListener('click', () => {
+  const checkboxes = document.querySelectorAll('.todos-row input[type="checkbox"]');
+
+  for (const checkbox of checkboxes) {
+    checkbox.checked = toggleEl.checked;
+  }
+});
