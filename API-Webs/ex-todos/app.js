@@ -80,3 +80,12 @@ listEl.addEventListener('keyup', (event) => {
 // Créer Autant de ligne qu'il y a de résultats à cette requete
 // en vous inspirant du addEventListener submit du formulaire et de l'ex
 // geocoding
+
+fetch('https://jsonplaceholder.typicode.com/todos')
+  .then((res) => res.json())
+  .then((todos) => {
+    for (const todo of todos) {
+      const todoRowEl = createTodoRow(todo);
+      listEl.append(todoRowEl);
+    }
+  });
