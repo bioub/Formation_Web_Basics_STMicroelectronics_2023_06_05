@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const names = ['Romain', 'Sara', 'Wassim'];
+
+    // le callback qu'on passe à map est une fonction de transformation
+    // elle va transformer chaque élément du tableau source vers un nouveau table
+    const newNames = names.map((el) => el.toUpperCase());
+
+    // [
+    //   'Romain' -> (el) => el.toUpperCase() -> 'ROMAIN'
+    //   'Sara' -> (el) => el.toUpperCase() -> 'SARA'
+    //   'Wassim' -> (el) => el.toUpperCase() -> 'WASSIM'
+    // ]
+
+    console.log(newNames); // ['ROMAIN', 'SARA', 'WASSIM'];
+
+    const users = [{
+      name: 'Romain',
+      genre: 'Homme'
+    }, {
+      name: 'Sara',
+      genre: 'Femme'
+    },{
+      name: 'Wassim',
+      genre: 'Homme'
+    }];
+
+    const usernames = users.map((el) => el.name);
+    console.log(usernames); // ['Romain', 'Sara', 'Wassim']
+
+    fetch('https://6a59157b-430d-4969-b802-b9c12470dafb-bluemix.cloudantnosqldb.appdomain.cloud/phones/_all_docs?include_docs=true')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.rows.map((row) => row.doc));
+      });
+  </script>
+</body>
+</html>
